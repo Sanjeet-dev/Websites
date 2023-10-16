@@ -1,11 +1,15 @@
-const body = document.querySelector("body");
+// const body = document.querySelector("body");
 const cursor = document.querySelector(".pointer");
+const blur = document.querySelector(".pointer-blur");
 
-body.addEventListener("mousemove",function(coor){
-    
+document.addEventListener("mousemove",function(coor){
     cursor.style.left = coor.x+"px";
     cursor.style.top = coor.y+"px";
+    blur.style.left = coor.x - 200 +"px";
+    blur.style.top = coor.y -200 +"px";
 });
+
+
 
 gsap.to("#nav",{
     backgroundColor:"#000",
@@ -28,5 +32,8 @@ gsap.to("#main", {
         trigger:"#main",
         scroller:"body",
         markers:true,
+        start:"top -25%",
+        end: "top -70%",
+        scrub:2
     }
 })
